@@ -1,0 +1,20 @@
+version: '3'
+services:
+  service-a:
+    build:
+      context: service-a
+      dockerfile: Dockerfile
+    image: service-a
+    ports:
+      - 8000:80
+    volumes:
+      - ./service-a:/go/src/github.com/user/myProject/app
+  service-b:
+    build:
+      context: service-b
+      dockerfile: .docker/Dockerfile
+    image: service-b
+    ports:
+      - 3000:80
+    volumes:
+      - ./service-b:/srv/app
